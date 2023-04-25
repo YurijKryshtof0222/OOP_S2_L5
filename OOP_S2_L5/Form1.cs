@@ -80,7 +80,7 @@ namespace OOP_S2_L5
         {
             if (!readFieldsFromTextBox()) return;
 
-            if (pointCount == 1)
+            if (pointCount == 0)
             {
                 if (r == 0 && b == 0 && g == 0)
                 {
@@ -95,7 +95,7 @@ namespace OOP_S2_L5
             {
                 lastPolyline.AddPoint(new ColoredPoint(xCoord, yCoord));
                 endAddingPolyline(lastPolyline);
-                pointCountLabel.Text = "1";
+                pointCountLabel.Text = "0";
             }
 
         }
@@ -104,7 +104,7 @@ namespace OOP_S2_L5
         {
             if (!readFieldsFromTextBox()) return;
 
-            if (pointCount == 1)
+            if (pointCount == 0)
             {
                 lastPolyline = new Polyline(new myClasses.Color(r, g, b), new Point(xCoord, yCoord));
                 startAddingPolyline(lastPolyline);
@@ -166,7 +166,8 @@ namespace OOP_S2_L5
             string series = "polyLineSeriesCount" + coloredPointSeriesCount;
             int pointCount = int.Parse(pointCountLabel.Text);
 
-            graph.Series[series].Points.AddXY(polyLine.Points[pointCount - 1].Xcoord, polyLine.Points[pointCount - 1].Ycoord);
+            graph.Series[series].Points.AddXY(polyLine.Points[polyLine.Points.Count - 1].Xcoord, 
+                                              polyLine.Points[polyLine.Points.Count - 1].Ycoord);
         }
 
         private void endAddingPolyline(Polyline polyLine)

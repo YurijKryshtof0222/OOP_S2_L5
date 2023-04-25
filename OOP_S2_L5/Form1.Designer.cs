@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.yCoordTextBox = new System.Windows.Forms.TextBox();
             this.xCoordTextBox = new System.Windows.Forms.TextBox();
@@ -175,18 +175,18 @@
             // 
             // graph
             // 
-            chartArea2.Name = "ChartArea1";
-            this.graph.ChartAreas.Add(chartArea2);
+            chartArea3.Name = "ChartArea1";
+            this.graph.ChartAreas.Add(chartArea3);
             this.graph.Location = new System.Drawing.Point(218, 13);
             this.graph.Name = "graph";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series2.MarkerSize = 12;
-            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series2.Name = "Points";
-            series2.ShadowColor = System.Drawing.Color.Bisque;
-            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.graph.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series3.MarkerSize = 12;
+            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series3.Name = "Points";
+            series3.ShadowColor = System.Drawing.Color.Bisque;
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.graph.Series.Add(series3);
             this.graph.Size = new System.Drawing.Size(491, 291);
             this.graph.TabIndex = 2;
             this.graph.Text = "chart1";
@@ -228,7 +228,7 @@
             this.pointCountLabel.Name = "pointCountLabel";
             this.pointCountLabel.Size = new System.Drawing.Size(83, 20);
             this.pointCountLabel.TabIndex = 9;
-            this.pointCountLabel.Text = "1";
+            this.pointCountLabel.Text = "0";
             // 
             // Form1
             // 
@@ -243,7 +243,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "GraphDemo";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
