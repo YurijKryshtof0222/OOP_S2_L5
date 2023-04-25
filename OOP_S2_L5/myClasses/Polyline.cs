@@ -42,6 +42,31 @@ namespace OOP_S2_L5.myClasses
             Points.RemoveAt(index);
         }
 
+        private ColoredPoint GetCenter()
+        {
+            double x = 0, y = 0;
+            foreach (var point in Points)
+            {
+                x += point.Xcoord;
+                y += point.Ycoord;
+            }
+            int count = Points.Count;
+            return new ColoredPoint(new Point((int)(x / count), (int)(y / count)), color);
+        }
+
+        public void Scale(double factor)
+        {
+            var center = GetCenter();
+            for (int i = 0; i < Points.Count; i++)
+            {
+                var distanceX = Points[i].X - center.X;
+                var distanceY = Points[i].Y - center.Y;
+                Points[i].X = center.X + (int)(distanceX * factor);
+                Points[i].Y = center.Y + (int)(distanceY * factor);
+            }
+        }
+
+
     }
 
 }

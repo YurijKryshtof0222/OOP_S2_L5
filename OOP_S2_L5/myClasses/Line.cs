@@ -21,7 +21,11 @@ namespace OOP_S2_L5.myClasses
             }
             set
             {
-                angle = value <= 360 ? value : value % 360;
+                angle = value % 360;
+                if (angle < 0) // якщо кут від'ємний, переводимо його в додатній еквівалент
+                {
+                    angle += 360;
+                }
             }
         }
 
