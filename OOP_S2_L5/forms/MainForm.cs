@@ -55,15 +55,58 @@ namespace OOP_S2_L5
             RetrieveVectorsFromColoredLineList(lines);
         }
 
+        private void taskForLab6()
+        {
+            List<IVectorComparable> list = new List<IVectorComparable>();
+
+            list.Add(new Polyline(new myClasses.Color(255, 255, 0), new Point(5, 5), new Point(6, 7)));
+            list.Add(new Polyline(new myClasses.Color(255, 0, 255),
+                    new Point(3, 4), new Point(4, 3), new Point(8, 7)));
+            list.Add(new ColoredPoint(2, 3, new Color(132, 128, 128)));
+            list.Add(new ColoredPoint(6, 6));
+
+            RetrieveVectorsFromComparableLineList(list);
+
+            list.Sort();
+
+            string str = "";
+
+            foreach (var vector in list)
+            {
+                str += vector + ",\n\n";
+            }
+
+            MessageBox.Show($"List: {{ {str} }}", "Info",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         private void RetrieveVectorsFromColoredLineList(LineCollection list)
         {
-            foreach (var vector in list.ToList())
+            foreach (var vector in list)
             {
                 if (vector == null) continue;
                 else if (vector is ColoredLine)
                 {
                     ColoredLine line = vector as ColoredLine;
                     addPolyline(new Polyline(line.Color, line.FirstPoint, line.SecondPoint));
+                }
+                else
+                {
+                    addPolyline(vector as Polyline);
+                }
+
+            }
+        }
+
+
+        private void RetrieveVectorsFromComparableLineList(List<IVectorComparable>  list)
+        {
+            foreach (var vector in list.ToList())
+            {
+                if (vector == null) continue;
+                else if (vector is ColoredPoint)
+                {
+                    addColoredPoint(vector as ColoredPoint);
                 }
                 else
                 {
