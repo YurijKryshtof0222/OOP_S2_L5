@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OOP_S2_L5.myClasses
 {
-    public class ColoredPoint : Point
+    public class ColoredPoint : Point, ICloneable
     {
         public Color Color { get; set; }
 
