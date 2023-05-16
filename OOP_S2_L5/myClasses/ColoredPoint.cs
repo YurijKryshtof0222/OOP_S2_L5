@@ -40,7 +40,16 @@ namespace OOP_S2_L5.myClasses
         {
             this.Color = new Color(color);
         }
-        
+
+        public new object Clone()
+        {
+            return new ColoredPoint(this);
+        }
+
+        public override string ToString()
+        {
+            return $"colored point {{ coordinations[{Xcoord} {Ycoord}], color: [r = {Color.Red}, b = {Color.Blue}, g = {Color.Green}] }}";
+        }
     }
 
 }

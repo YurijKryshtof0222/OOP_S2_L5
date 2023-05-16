@@ -1,6 +1,6 @@
 ﻿namespace OOP_S2_L5
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.yCoordTextBox = new System.Windows.Forms.TextBox();
             this.xCoordTextBox = new System.Windows.Forms.TextBox();
@@ -47,6 +47,10 @@
             this.setNextPointBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pointCountLabel = new System.Windows.Forms.TextBox();
+            this.moveBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
+            this.showInfoBtn = new System.Windows.Forms.Button();
+            this.deleteBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
@@ -81,6 +85,7 @@
             this.xCoordTextBox.Name = "xCoordTextBox";
             this.xCoordTextBox.Size = new System.Drawing.Size(120, 22);
             this.xCoordTextBox.TabIndex = 2;
+            this.xCoordTextBox.TextChanged += new System.EventHandler(this.xCoordTextBox_TextChanged);
             // 
             // label2
             // 
@@ -175,25 +180,26 @@
             // 
             // graph
             // 
-            chartArea3.Name = "ChartArea1";
-            this.graph.ChartAreas.Add(chartArea3);
+            chartArea2.Name = "ChartArea1";
+            this.graph.ChartAreas.Add(chartArea2);
             this.graph.Location = new System.Drawing.Point(218, 13);
             this.graph.Name = "graph";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series3.MarkerSize = 12;
-            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series3.Name = "Points";
-            series3.ShadowColor = System.Drawing.Color.Bisque;
-            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.graph.Series.Add(series3);
-            this.graph.Size = new System.Drawing.Size(491, 291);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series2.MarkerSize = 12;
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series2.Name = "Points";
+            series2.ShadowColor = System.Drawing.Color.Bisque;
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.graph.Series.Add(series2);
+            this.graph.Size = new System.Drawing.Size(491, 382);
             this.graph.TabIndex = 2;
             this.graph.Text = "chart1";
+            this.graph.Click += new System.EventHandler(this.graph_Click);
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(16, 244);
+            this.addButton.Location = new System.Drawing.Point(12, 244);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(88, 34);
             this.addButton.TabIndex = 3;
@@ -215,7 +221,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(12, 284);
+            this.label3.Location = new System.Drawing.Point(12, 378);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 20);
             this.label3.TabIndex = 8;
@@ -224,17 +230,61 @@
             // pointCountLabel
             // 
             this.pointCountLabel.Enabled = false;
-            this.pointCountLabel.Location = new System.Drawing.Point(129, 284);
+            this.pointCountLabel.Location = new System.Drawing.Point(112, 375);
             this.pointCountLabel.Name = "pointCountLabel";
-            this.pointCountLabel.Size = new System.Drawing.Size(83, 20);
+            this.pointCountLabel.Size = new System.Drawing.Size(100, 20);
             this.pointCountLabel.TabIndex = 9;
             this.pointCountLabel.Text = "0";
             // 
-            // Form1
+            // moveBtn
+            // 
+            this.moveBtn.Location = new System.Drawing.Point(12, 284);
+            this.moveBtn.Name = "moveBtn";
+            this.moveBtn.Size = new System.Drawing.Size(88, 34);
+            this.moveBtn.TabIndex = 10;
+            this.moveBtn.Text = "Move";
+            this.moveBtn.UseVisualStyleBackColor = true;
+            this.moveBtn.Click += new System.EventHandler(this.moveBtn_Click);
+            // 
+            // exitBtn
+            // 
+            this.exitBtn.Location = new System.Drawing.Point(110, 324);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(102, 33);
+            this.exitBtn.TabIndex = 11;
+            this.exitBtn.Text = "Exit";
+            this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
+            // showInfoBtn
+            // 
+            this.showInfoBtn.Location = new System.Drawing.Point(110, 284);
+            this.showInfoBtn.Name = "showInfoBtn";
+            this.showInfoBtn.Size = new System.Drawing.Size(102, 34);
+            this.showInfoBtn.TabIndex = 12;
+            this.showInfoBtn.Text = "Show Info";
+            this.showInfoBtn.UseVisualStyleBackColor = true;
+            this.showInfoBtn.Click += new System.EventHandler(this.showInfoBtn_Click);
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Location = new System.Drawing.Point(12, 324);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(88, 33);
+            this.deleteBtn.TabIndex = 13;
+            this.deleteBtn.Text = "delete";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 316);
+            this.ClientSize = new System.Drawing.Size(721, 407);
+            this.Controls.Add(this.deleteBtn);
+            this.Controls.Add(this.showInfoBtn);
+            this.Controls.Add(this.exitBtn);
+            this.Controls.Add(this.moveBtn);
             this.Controls.Add(this.pointCountLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.setNextPointBtn);
@@ -242,7 +292,7 @@
             this.Controls.Add(this.graph);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "GraphDemo";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
@@ -274,6 +324,10 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart graph;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox pointCountLabel;
+        private System.Windows.Forms.Button moveBtn;
+        private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Button showInfoBtn;
+        private System.Windows.Forms.Button deleteBtn;
     }
 }
 
